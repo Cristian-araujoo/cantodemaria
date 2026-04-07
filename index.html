@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canto de Maria</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --azul-escuro: #10233f;
+      --azul-medio: #1b3b67;
+      --azul-claro: #2f5f98;
+      --branco: #ffffff;
+      --cinza-fundo: #f4f7fb;
+      --cinza-texto: #445066;
+      --rosa-instagram: #e1306c;
+      --verde-maps: #2ecc71;
+      --dourado: #d4af37;
+      --sombra: 0 12px 30px rgba(16, 35, 63, 0.12);
+      --borda: 18px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #edf3f9, #f8fbff);
+      color: var(--azul-escuro);
+      animation: aparecerPagina 0.8s ease;
+    }
+
+    @keyframes aparecerPagina {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .topo {
+      background: linear-gradient(135deg, #10233f, #1c3e6e);
+      color: white;
+      text-align: center;
+      padding: 26px 20px 22px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .logo {
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      animation: flutuar 3s ease-in-out infinite;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+    }
+
+    @keyframes flutuar {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    .topo h1 {
+      font-size: 30px;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .topo p {
+      font-size: 15px;
+      opacity: 0.95;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(16, 35, 63, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 16px;
+      border-radius: 999px;
+      transition: 0.25s;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.14);
+    }
+
+    .hero {
+      min-height: 88vh;
+      background: url('img/fundo.jpg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,20,35,0.72), rgba(10,20,35,0.42), rgba(10,20,35,0.78));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      color: white;
+      animation: subirHero 1s ease;
+    }
+
+    @keyframes subirHero {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      text-shadow: 0 3px 18px rgba(0,0,0,0.35);
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 620px;
+      margin: 0 auto 24px;
+      color: rgba(255,255,255,0.94);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    .hero-acoes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      border-radius: 14px;
+      padding: 14px 22px;
+      font-weight: bold;
+      transition: 0.25s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .btn-principal {
+      background: var(--rosa-instagram);
+      color: white;
+    }
+
+    .btn-secundario {
+      background: rgba(255,255,255,0.14);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-maps {
+      background: var(--azul-claro);
+      color: white;
+    }
+
+    .btn-rotas {
+      background: var(--verde-maps);
+      color: white;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .secao {
+      padding: 28px 0;
+    }
+
+    .titulo-secao {
+      font-size: 28px;
+      margin-bottom: 18px;
+      color: var(--azul-escuro);
+    }
+
+    .subtitulo-secao {
+      color: var(--cinza-texto);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(10px);
+      border-radius: var(--borda);
+      padding: 24px;
+      box-shadow: var(--sombra);
+      border: 1px solid rgba(255,255,255,0.75);
+      transition: 0.28s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(16, 35, 63, 0.14);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--azul-escuro);
+    }
+
+    .card p {
+      color: var(--cinza-texto);
+      line-height: 1.7;
+    }
+
+    .destaque {
+      background: linear-gradient(135deg, #17345d, #2e5d95);
+      color: white;
+    }
+
+    .destaque h3,
+    .destaque p {
+      color: white;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #eaf1fb;
+      color: var(--azul-medio);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .destaque .pill {
+      background: rgba(255,255,255,0.16);
+      color: white;
+    }
+
+    #frase {
+      font-size: 21px;
+      line-height: 1.8;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .foto-card {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 14px;
+      object-fit: cover;
+      max-height: 300px;
+    }
+
+    .evento {
+      padding: 14px 0;
+      border-bottom: 1px solid #e6edf6;
+    }
+
+    .evento:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .evento strong {
+      display: block;
+      color: var(--azul-escuro);
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .evento span {
+      color: var(--cinza-texto);
+      font-size: 15px;
+    }
+
+    .horario-card {
+      text-align: center;
+    }
+
+    .horario-card .icone {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .horario-card h4 {
+      font-size: 17px;
+      margin-bottom: 8px;
+      color: var(--azul-escuro);
+    }
+
+    .horario-card p {
+      font-size: 14px;
+      color: var(--cinza-texto);
+      line-height: 1.6;
+    }
+
+    .aviso {
+      padding: 14px 0;
+      border-bottom: 1px solid #e6edf6;
+    }
+
+    .aviso:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .aviso strong {
+      display: block;
+      color: var(--azul-escuro);
+      margin-bottom: 5px;
+    }
+
+    iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      margin-top: 14px;
+    }
+
+    .acoes-mapa {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .instagram-box {
+      overflow: hidden;
+      border-radius: 14px;
+      margin-top: 12px;
+    }
+
+    .insta-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--rosa-instagram);
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      box-shadow: 0 12px 26px rgba(225, 48, 108, 0.35);
+      z-index: 100;
+      transition: 0.25s;
+    }
+
+    .insta-float:hover {
+      transform: scale(1.08);
+    }
+
+    .topo-btn {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--azul-escuro);
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      box-shadow: 0 12px 26px rgba(16, 35, 63, 0.3);
+      z-index: 100;
+      transition: 0.25s;
+    }
+
+    .topo-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      margin-top: 10px;
+      background: linear-gradient(135deg, #10233f, #1b3b67);
+      color: white;
+      padding: 30px 16px;
+    }
+
+    .footer-grid {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 10px;
+      font-size: 17px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .footer-copy {
+      width: min(1120px, calc(100% - 32px));
+      margin: 20px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    @media (max-width: 900px) {
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 34px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topo h1 {
+        font-size: 25px;
+      }
+
+      .hero {
+        min-height: 76vh;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .titulo-secao {
+        font-size: 24px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .btn,
+      nav a {
+        font-size: 14px;
+      }
+
+      .insta-float,
+      .topo-btn {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body id="topo">
+
+  <header class="topo">
+    <img src="img/logo.png" alt="Logo Canto de Maria" class="logo">
+    <h1>Canto de Maria</h1>
+    <p>Comunidade de fé, música e oração</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="#mensagem">Mensagem</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#localizacao">Localização</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Comunidade Católica</span>
+      <h2>Levando fé através da música</h2>
+      <p>
+        Unindo corações em louvor, oração e evangelização através da música,
+        com amor, entrega e presença de Deus.
+      </p>
+
+      <div class="hero-acoes">
+        <a href="https://www.instagram.com/comunidadecantodemaria/" target="_blank" class="btn btn-principal">
+          📸 Nosso Instagram
+        </a>
+        <a href="#localizacao" class="btn btn-secundario">
+          📍 Onde estamos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section class="secao reveal" id="mensagem">
+      <div class="card destaque">
+        <span class="pill">Mensagem diária</span>
+        <h3>Mensagem de Deus para você hoje</h3>
+        <p id="frase">Carregando...</p>
+      </div>
+    </section>
+
+    <section class="secao grid grid-2 reveal">
+      <div class="card">
+        <span class="pill">Quem somos</span>
+        <h3>Uma comunidade que evangeliza com música</h3>
+        <img src="img/grupo.jpg" alt="Grupo Canto de Maria" class="foto-card">
+        <p>
+          Somos um grupo que busca tocar corações por meio da música, da oração
+          e do serviço. Nosso propósito é levar a presença de Deus às pessoas,
+          fortalecendo a fé e a comunhão em cada encontro.
+        </p>
+      </div>
+
+      <div class="card destaque">
+        <span class="pill">Nossa missão</span>
+        <h3>Evangelizar, acolher e conduzir à presença de Deus</h3>
+        <p>
+          Queremos ser instrumento de paz, esperança e fé, usando a música como
+          caminho para levar o amor de Deus às famílias, aos jovens e a toda a comunidade.
+        </p>
+      </div>
+    </section>
+
+    <section class="secao reveal">
+      <h2 class="titulo-secao">Horários da comunidade</h2>
+      <p class="subtitulo-secao">
+        Informações principais para quem deseja participar conosco.
+      </p>
+
+      <div class="grid grid-4">
+        <div class="card horario-card">
+          <div class="icone">⛪</div>
+          <h4>Missas de Domingo</h4>
+          <p>08h, 10h30 e 18h</p>
+        </div>
+
+        <div class="card horario-card">
+          <div class="icone">🙏</div>
+          <h4>Grupo de Oração</h4>
+          <p>Quarta-feira às 19h30</p>
+        </div>
+
+        <div class="card horario-card">
+          <div class="icone">🎶</div>
+          <h4>Encontros de Música</h4>
+          <p>Sexta-feira às 19h30</p>
+        </div>
+
+        <div class="card horario-card">
+          <div class="icone">📍</div>
+          <h4>Local</h4>
+          <p>Basílica Menor de Sant'Ana</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao grid grid-2 reveal">
+      <div class="card">
+        <span class="pill">Avisos</span>
+        <h3>Avisos da semana</h3>
+
+        <div class="aviso">
+          <strong>Ensaio do ministério</strong>
+          <p>Sábado às 16h no salão paroquial.</p>
+        </div>
+
+        <div class="aviso">
+          <strong>Missa especial</strong>
+          <p>Domingo às 18h com participação da comunidade.</p>
+        </div>
+
+        <div class="aviso">
+          <strong>Convite aberto</strong>
+          <p>Novos participantes são bem-vindos em nossos encontros.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="pill">Eventos</span>
+        <h3>Próximos eventos</h3>
+
+        <div class="evento">
+          <strong>🎶 Louvor especial</strong>
+          <span>12 de Abril - 19h • Noite de música, oração e adoração.</span>
+        </div>
+
+        <div class="evento">
+          <strong>🙏 Grupo de oração</strong>
+          <span>Toda quarta às 19h30 • Momento de espiritualidade e comunhão.</span>
+        </div>
+
+        <div class="evento">
+          <strong>⛪ Missa especial</strong>
+          <span>Próximo domingo - 18h • Celebração com participação da comunidade.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao reveal" id="localizacao">
+      <div class="card">
+        <span class="pill">Localização</span>
+        <h3>Basílica Menor de Sant'Ana</h3>
+        <p>Venha nos visitar e participar dos nossos momentos de fé e louvor.</p>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.842604651379!2d-46.628432788500476!3d-23.502178059333296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef62eb14b0679%3A0x6856fde426204b19!2sBas%C3%ADlica%20Menor%20de%20Sant&#39;Ana!5e0!3m2!1spt-BR!2sbr"
+          height="320"
+          loading="lazy">
+        </iframe>
+
+        <div class="acoes-mapa">
+          <a href="https://maps.app.goo.gl/acA41TT9ry4NetFU8" target="_blank" class="btn btn-maps">
+            📍 Abrir no Maps
+          </a>
+
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Bas%C3%ADlica+Menor+de+Sant%27Ana+SP" target="_blank" class="btn btn-rotas">
+            🚗 Como chegar
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao reveal">
+      <div class="card">
+        <span class="pill">Instagram</span>
+        <h3>Nos acompanhe nas redes</h3>
+        <p>
+          Veja fotos, avisos e momentos especiais da comunidade no nosso perfil.
+        </p>
+
+        <div class="instagram-box">
+          <iframe
+            src="https://www.instagram.com/comunidadecantodemaria/embed"
+            height="500"
+            style="border:none;">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Canto de Maria</h4>
+        <p>Comunidade de fé, música e oração, levando esperança e evangelização através da música.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <p>Instagram: @comunidadecantodemaria</p>
+        <p>Basílica Menor de Sant'Ana</p>
+        <p>São Paulo - SP</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horários</h4>
+        <p>Domingo: 08h, 10h30 e 18h</p>
+        <p>Quarta: 19h30</p>
+        <p>Sexta: 19h30</p>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 Canto de Maria • Todos os direitos reservados
+    </div>
+  </footer>
+
+  <a href="https://www.instagram.com/comunidadecantodemaria/" target="_blank" class="insta-float">📸</a>
+  <a href="#topo" class="topo-btn">↑</a>
+
+  <script>
+    function fraseDoDia() {
+      const frases = [
+        "Tudo posso naquele que me fortalece. (Filipenses 4:13)",
+        "O Senhor é meu pastor, nada me faltará. (Salmo 23)",
+        "Entrega teu caminho ao Senhor. (Salmo 37:5)",
+        "A fé remove montanhas.",
+        "Deus nunca falha.",
+        "Confie no tempo de Deus.",
+        "Onde está Deus, há esperança.",
+        "A oração é a chave da vitória.",
+        "Deus está cuidando de tudo.",
+        "A graça de Deus é suficiente."
+      ];
+
+      const agora = new Date();
+      let dataBase = new Date(agora);
+
+      if (agora.getHours() < 6) {
+        dataBase.setDate(dataBase.getDate() - 1);
+      }
+
+      const numeroDia = Math.floor(dataBase.getTime() / (1000 * 60 * 60 * 24));
+      const fraseEscolhida = frases[numeroDia % frases.length];
+
+      document.getElementById("frase").innerText = fraseEscolhida;
+    }
+
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+
+      reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 80) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    fraseDoDia();
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+
+</body>
+</html>

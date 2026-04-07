@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria • Canto de Maria</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --azul-escuro: #10233f;
+      --azul-medio: #1b3b67;
+      --azul-claro: #2f5f98;
+      --branco: #ffffff;
+      --cinza-texto: #445066;
+      --rosa-instagram: #e1306c;
+      --sombra: 0 12px 30px rgba(16, 35, 63, 0.12);
+      --borda: 18px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #edf3f9, #f8fbff);
+      color: var(--azul-escuro);
+      animation: aparecerPagina 0.8s ease;
+    }
+
+    @keyframes aparecerPagina {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .topo {
+      background: linear-gradient(135deg, #10233f, #1c3e6e);
+      color: white;
+      text-align: center;
+      padding: 26px 20px 22px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .logo {
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+    }
+
+    .topo h1 {
+      font-size: 30px;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .topo p {
+      font-size: 15px;
+      opacity: 0.95;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(16, 35, 63, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 16px;
+      border-radius: 999px;
+      transition: 0.25s;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.14);
+    }
+
+    .hero-galeria {
+      min-height: 42vh;
+      background: linear-gradient(135deg, rgba(16,35,63,0.96), rgba(47,95,152,0.92));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    .hero-galeria-content {
+      max-width: 760px;
+    }
+
+    .hero-galeria .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .hero-galeria h2 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .hero-galeria p {
+      font-size: 17px;
+      line-height: 1.7;
+      opacity: 0.96;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .secao {
+      padding: 30px 0;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.9);
+      border-radius: var(--borda);
+      padding: 24px;
+      box-shadow: var(--sombra);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    .titulo-secao {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: var(--azul-escuro);
+    }
+
+    .subtitulo-secao {
+      color: var(--cinza-texto);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .foto-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      cursor: pointer;
+      background: #dfe7f2;
+      box-shadow: 0 10px 24px rgba(16, 35, 63, 0.12);
+      transition: 0.3s;
+    }
+
+    .foto-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(16, 35, 63, 0.16);
+    }
+
+    .foto-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: 0.35s ease;
+    }
+
+    .foto-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .foto-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 18px 14px 12px;
+      background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.12), transparent);
+      color: white;
+    }
+
+    .foto-overlay h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .foto-overlay p {
+      font-size: 13px;
+      opacity: 0.92;
+    }
+
+    .dica-box {
+      margin-top: 22px;
+      background: linear-gradient(135deg, #17345d, #2e5d95);
+      color: white;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .dica-box h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .dica-box p {
+      line-height: 1.7;
+      opacity: 0.96;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-conteudo {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .modal img {
+      max-width: 100%;
+      max-height: 82vh;
+      border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+    }
+
+    .modal-legenda {
+      color: white;
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .fechar {
+      position: absolute;
+      top: -8px;
+      right: 0;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: white;
+      color: var(--azul-escuro);
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .insta-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--rosa-instagram);
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      box-shadow: 0 12px 26px rgba(225, 48, 108, 0.35);
+      z-index: 100;
+      transition: 0.25s;
+    }
+
+    .insta-float:hover {
+      transform: scale(1.08);
+    }
+
+    .topo-btn {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--azul-escuro);
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      box-shadow: 0 12px 26px rgba(16, 35, 63, 0.3);
+      z-index: 100;
+      transition: 0.25s;
+    }
+
+    .topo-btn:hover {
+      transform: scale(1.08);
+    }
+
+    footer {
+      margin-top: 10px;
+      background: linear-gradient(135deg, #10233f, #1b3b67);
+      color: white;
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    footer p {
+      opacity: 0.92;
+    }
+
+    @media (max-width: 900px) {
+      .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-galeria h2 {
+        font-size: 34px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .galeria-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-galeria {
+        min-height: 34vh;
+      }
+
+      .hero-galeria h2 {
+        font-size: 28px;
+      }
+
+      .hero-galeria p {
+        font-size: 15px;
+      }
+
+      .foto-item img {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+<body id="topo">
+
+  <header class="topo">
+    <img src="img/logo.png" alt="Logo Canto de Maria" class="logo">
+    <h1>Canto de Maria</h1>
+    <p>Galeria de momentos da comunidade</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="#fotos">Fotos</a>
+  </nav>
+
+  <section class="hero-galeria">
+    <div class="hero-galeria-content">
+      <span class="badge">Nossa galeria</span>
+      <h2>Momentos que marcam a fé</h2>
+      <p>
+        Registros de missas, encontros e momentos especiais vividos pela comunidade.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="secao" id="fotos">
+      <div class="card">
+        <h2 class="titulo-secao">Fotos da comunidade</h2>
+        <p class="subtitulo-secao">
+          Clique em qualquer imagem para ampliar.
+        </p>
+
+        <div class="galeria-grid">
+          <div class="foto-item" onclick="abrirModal('img/foto1.jpg', 'Missa', 'Momento especial de música e oração.')">
+            <img src="img/foto1.jpg" alt="Missa">
+            <div class="foto-overlay">
+              <h3>Missa</h3>
+              <p>Momento especial de música e oração</p>
+            </div>
+          </div>
+
+          <div class="foto-item" onclick="abrirModal('img/foto2.jpg', 'Momento de oração', 'Comunidade reunida em oração.')">
+            <img src="img/foto2.jpg" alt="Momento de oração">
+            <div class="foto-overlay">
+              <h3>Momento de oração</h3>
+              <p>Comunidade reunida em oração</p>
+            </div>
+          </div>
+
+          <div class="foto-item" onclick="abrirModal('img/foto3.jpg', 'Comunidade reunida', 'Encontro e convivência fraterna.')">
+            <img src="img/foto3.jpg" alt="Comunidade reunida">
+            <div class="foto-overlay">
+              <h3>Comunidade reunida</h3>
+              <p>Encontro e convivência fraterna</p>
+            </div>
+          </div>
+
+          <div class="foto-item" onclick="abrirModal('img/foto4.jpg', 'Celebração especial', 'Registro de um momento importante.')">
+            <img src="img/foto5.jpg" alt="Celebração especial">
+            <div class="foto-overlay">
+              <h3>Celebração especial</h3>
+              <p>Registro de um momento importante</p>
+            </div>
+          </div>
+
+          <div class="foto-item" onclick="abrirModal('img/foto5.jpg', 'Grupo em missão', 'Serviço e evangelização com alegria.')">
+            <img src="img/foto4.jpg" alt="Grupo em missão">
+            <div class="foto-overlay">
+              <h3>Grupo em missão</h3>
+              <p>Serviço e evangelização com alegria</p>
+            </div>
+          </div>
+
+          <div class="foto-item" onclick="abrirModal('img/foto6.jpg', 'Encontro da comunidade', 'União, partilha e fé.')">
+            <img src="img/foto6.jpg" alt="Encontro da comunidade">
+            <div class="foto-overlay">
+              <h3>Encontro da comunidade</h3>
+              <p>União, partilha e fé</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" onclick="fecharModal(event)">
+    <div class="modal-conteudo">
+      <button class="fechar" onclick="fecharModal(event)">×</button>
+      <img id="modalImagem" src="" alt="">
+      <div class="modal-legenda" id="modalLegenda"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Canto de Maria • Galeria oficial da comunidade</p>
+  </footer>
+
+  <a href="https://www.instagram.com/comunidadecantodemaria/" target="_blank" class="insta-float">📸</a>
+  <a href="#topo" class="topo-btn">↑</a>
+
+  <script>
+    function abrirModal(imagem, titulo, descricao) {
+      document.getElementById('modalImagem').src = imagem;
+      document.getElementById('modalImagem').alt = titulo;
+      document.getElementById('modalLegenda').innerHTML = '<strong>' + titulo + '</strong><br>' + descricao;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function fecharModal(event) {
+      if (event.target.id === 'modal' || event.target.className === 'fechar') {
+        document.getElementById('modal').style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
