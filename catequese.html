@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catequese • Canto de Maria</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background:
+        linear-gradient(rgba(16,35,63,0.7), rgba(16,35,63,0.7)),
+        url('img/fundo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    .topo {
+      background: linear-gradient(135deg, #10233f, #1c3e6e);
+      text-align: center;
+      padding: 25px;
+    }
+
+    .logo {
+      width: 90px;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      background: #10233f;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .bloco {
+      margin-bottom: 40px;
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .item {
+      background: rgba(255,255,255,0.96);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+    }
+
+    .titulo {
+      width: 100%;
+      background: linear-gradient(135deg, #1b3b67, #2f5f98);
+      color: white;
+      border: none;
+      padding: 16px 18px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .titulo:hover {
+      background: linear-gradient(135deg, #163256, #274f81);
+    }
+
+    .conteudo {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 18px;
+      background: rgba(255,255,255,0.98);
+    }
+
+    .conteudo p {
+      margin: 14px 0;
+      line-height: 1.7;
+      color: #445066;
+      text-align: left;
+    }
+
+    footer {
+      background: #10233f;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 20px;
+      }
+
+      .titulo {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topo">
+  <img src="img/logo.png" class="logo" alt="Logo Canto de Maria">
+  <h1>Canto de Maria</h1>
+  <p>Catequese</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="galeria.html">Galeria</a>
+  <a href="catequese.html">Catequese</a>
+</nav>
+
+<div class="container">
+
+  <div class="bloco">
+    <h2>Os 7 Sacramentos</h2>
+    <div class="accordion">
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">Batismo</button>
+        <div class="conteudo">
+          <p>O Batismo é o primeiro sacramento da vida cristã. Por meio dele, a pessoa se torna filha de Deus, entra na Igreja e inicia sua caminhada de fé.</p>
+          <p>No Batismo, o pecado original é apagado e recebemos uma vida nova em Cristo. É um sacramento fundamental, pois abre as portas para os demais sacramentos.</p>
+          <p>Ele normalmente é realizado com água e com a fórmula trinitária: “Eu te batizo em nome do Pai, do Filho e do Espírito Santo”.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">Eucaristia</button>
+        <div class="conteudo">
+          <p>A Eucaristia é o sacramento do Corpo e Sangue de Jesus Cristo. Nela, recebemos o próprio Cristo sob as espécies do pão e do vinho consagrados.</p>
+          <p>É o centro da vida da Igreja e da Santa Missa. A Eucaristia fortalece a fé, une mais profundamente o cristão a Cristo e à comunidade.</p>
+          <p>Por isso, a comunhão é um dos momentos mais importantes da vida espiritual do católico.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">Crisma</button>
+        <div class="conteudo">
+          <p>A Crisma, também chamada Confirmação, fortalece a graça recebida no Batismo e concede os dons do Espírito Santo de maneira especial.</p>
+          <p>Por meio dela, o cristão amadurece na fé e assume com mais consciência sua missão dentro da Igreja.</p>
+          <p>É o sacramento que confirma o compromisso de viver como discípulo de Cristo e testemunhar o Evangelho.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">Confissão</button>
+        <div class="conteudo">
+          <p>A Confissão, também chamada Penitência ou Reconciliação, é o sacramento pelo qual recebemos o perdão dos pecados cometidos após o Batismo.</p>
+          <p>Nele, o fiel reconhece seus pecados com sinceridade, arrepende-se e recebe a absolvição por meio do sacerdote.</p>
+          <p>Esse sacramento restaura a amizade com Deus e traz paz ao coração.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">Unção dos Enfermos</button>
+        <div class="conteudo">
+          <p>A Unção dos Enfermos é o sacramento destinado às pessoas doentes ou em situação de fragilidade física e espiritual.</p>
+          <p>Ele traz consolo, força, paz e coragem para enfrentar o sofrimento, unindo a pessoa mais profundamente a Cristo.</p>
+          <p>Em alguns casos, também pode contribuir para a recuperação da saúde, se for vontade de Deus.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">Ordem</button>
+        <div class="conteudo">
+          <p>O sacramento da Ordem é recebido por aqueles que são chamados ao serviço ministerial da Igreja como diáconos, padres e bispos.</p>
+          <p>Por meio dele, o homem é consagrado para servir o povo de Deus na pregação, nos sacramentos e na condução pastoral.</p>
+          <p>É um sacramento de entrega, serviço e missão.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">Matrimônio</button>
+        <div class="conteudo">
+          <p>O Matrimônio é o sacramento da união entre homem e mulher, abençoada por Deus, para formar uma família cristã.</p>
+          <p>Nele, os esposos assumem um compromisso de amor, fidelidade e abertura à vida.</p>
+          <p>É um caminho de santidade vivido no amor, no respeito e na doação mútua.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bloco">
+    <h2>Os 10 Mandamentos</h2>
+    <div class="accordion">
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">1. Amar a Deus sobre todas as coisas</button>
+        <div class="conteudo">
+          <p>Esse mandamento nos ensina que Deus deve ocupar o primeiro lugar em nossa vida. Nada pode estar acima do amor, da confiança e da obediência a Ele.</p>
+          <p>Viver esse mandamento é colocar Deus no centro das decisões, da oração, da família e da caminhada de fé.</p>
+          <p>Também significa rejeitar tudo aquilo que nos afasta d’Ele, como idolatria, superstição ou qualquer coisa que tome o lugar de Deus em nosso coração.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">2. Não tomar Seu santo nome em vão</button>
+        <div class="conteudo">
+          <p>O nome de Deus é santo e deve ser pronunciado com respeito, reverência e amor.</p>
+          <p>Esse mandamento nos chama a evitar blasfêmias, juramentos falsos e qualquer uso desrespeitoso do nome de Deus.</p>
+          <p>Também nos convida a usar o nome do Senhor em oração, louvor e confiança, nunca de maneira vazia ou ofensiva.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">3. Guardar domingos e festas de guarda</button>
+        <div class="conteudo">
+          <p>O domingo é o Dia do Senhor, dedicado à oração, à Missa e ao descanso santo. É o dia em que a Igreja celebra a ressurreição de Jesus.</p>
+          <p>Guardar domingos e festas significa participar da Santa Missa e evitar aquilo que nos afasta do sentido sagrado desse dia.</p>
+          <p>É também um convite para estar em família, renovar a fé e dar a Deus o lugar que Lhe pertence.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">4. Honrar pai e mãe</button>
+        <div class="conteudo">
+          <p>Esse mandamento nos ensina a respeitar, amar e cuidar dos pais, reconhecendo neles a autoridade e o dom da vida recebida de Deus.</p>
+          <p>Ele também se estende ao respeito pelas pessoas que exercem autoridade justa em nossa vida, como educadores e responsáveis.</p>
+          <p>Honrar pai e mãe é viver a gratidão, o cuidado e a obediência com amor.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">5. Não matar</button>
+        <div class="conteudo">
+          <p>Deus é o autor da vida, e por isso toda vida humana deve ser respeitada e defendida desde a concepção até a morte natural.</p>
+          <p>Esse mandamento proíbe não só o homicídio, mas também o ódio, a violência, a vingança e tudo aquilo que fere a dignidade da pessoa humana.</p>
+          <p>Ele nos chama a promover a paz, o perdão, a caridade e o cuidado com o próximo.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">6. Não pecar contra a castidade</button>
+        <div class="conteudo">
+          <p>Esse mandamento nos orienta a viver a pureza do coração, do corpo e dos relacionamentos conforme a vontade de Deus.</p>
+          <p>A castidade é uma virtude que ajuda a amar com verdade, respeito e responsabilidade, de acordo com o estado de vida de cada pessoa.</p>
+          <p>Ele nos convida a evitar tudo aquilo que desfigura o amor humano e a sexualidade, que são dons sagrados de Deus.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">7. Não roubar</button>
+        <div class="conteudo">
+          <p>Esse mandamento nos ensina a respeitar os bens e os direitos do próximo.</p>
+          <p>Roubar não é apenas tirar algo material, mas também agir com injustiça, desonestidade, exploração ou falta de respeito pelo que pertence aos outros.</p>
+          <p>Viver esse mandamento é praticar a honestidade, a justiça e a solidariedade.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">8. Não levantar falso testemunho</button>
+        <div class="conteudo">
+          <p>Esse mandamento nos chama a viver na verdade. Mentir, caluniar, espalhar boatos e prejudicar a reputação do próximo são faltas contra esse ensinamento.</p>
+          <p>Deus deseja que sejamos pessoas sinceras, corretas e responsáveis com aquilo que dizemos.</p>
+          <p>Falar a verdade com caridade é uma forma de viver a justiça e o amor ao próximo.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">9. Não desejar a mulher do próximo</button>
+        <div class="conteudo">
+          <p>Esse mandamento orienta o coração humano à pureza das intenções e ao respeito pelos relacionamentos do próximo.</p>
+          <p>Ele ensina a combater desejos desordenados e a viver a fidelidade, o autocontrole e a dignidade no amor.</p>
+          <p>Mais do que uma proibição, é um chamado à pureza do coração e ao respeito pela santidade da família.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">10. Não cobiçar as coisas alheias</button>
+        <div class="conteudo">
+          <p>Esse mandamento nos convida a vencer a inveja, a ganância e o apego desordenado aos bens materiais.</p>
+          <p>Deus quer que aprendamos a viver com simplicidade, gratidão e confiança, sem desejar aquilo que pertence ao outro.</p>
+          <p>Ele nos chama a cultivar um coração livre, generoso e contente com o que recebemos de Deus.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bloco">
+    <h2>Mandamentos da Igreja</h2>
+    <div class="accordion">
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">1. Participar da Missa aos domingos e dias santos</button>
+        <div class="conteudo">
+          <p>A Igreja ensina que a participação na Santa Missa aos domingos e festas de guarda é obrigação fundamental do católico.</p>
+          <p>Esse mandamento nos ajuda a manter viva a fé, alimentar a alma com a Palavra de Deus e a Eucaristia, e viver a comunhão com toda a Igreja.</p>
+          <p>É um compromisso com Deus e com a vida cristã.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">2. Confessar-se ao menos uma vez por ano</button>
+        <div class="conteudo">
+          <p>A Confissão é um sacramento de cura e reconciliação. A Igreja pede que o fiel se confesse ao menos uma vez por ano, especialmente se estiver em pecado grave.</p>
+          <p>Esse mandamento existe para que o cristão não se afaste da graça de Deus e mantenha seu coração reconciliado com o Senhor.</p>
+          <p>É um convite ao arrependimento, à conversão e à paz interior.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">3. Comungar ao menos pela Páscoa da Ressurreição</button>
+        <div class="conteudo">
+          <p>A Igreja pede que todo católico receba a Eucaristia ao menos uma vez por ano, de preferência no tempo pascal.</p>
+          <p>Esse mandamento reforça a importância da comunhão como alimento espiritual indispensável para a vida cristã.</p>
+          <p>Comungar é receber o próprio Cristo e renovar a união com Ele.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">4. Jejuar e fazer abstinência nos dias determinados</button>
+        <div class="conteudo">
+          <p>O jejum e a abstinência são práticas penitenciais que ajudam o cristão a viver a conversão, o domínio de si e a união com o sacrifício de Cristo.</p>
+          <p>A Igreja determina dias específicos para essas práticas, especialmente na Quaresma e na Sexta-Feira Santa.</p>
+          <p>Esse mandamento nos lembra que a vida cristã também pede renúncia, disciplina e espírito de penitência.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="titulo" onclick="toggleItem(this)">5. Ajudar nas necessidades da Igreja</button>
+        <div class="conteudo">
+          <p>A Igreja precisa da colaboração de seus fiéis para continuar sua missão de evangelizar, celebrar os sacramentos e servir os necessitados.</p>
+          <p>Esse auxílio pode acontecer com doações, ofertas, dízimo, trabalho voluntário e participação ativa na comunidade.</p>
+          <p>Contribuir com a Igreja é um gesto de responsabilidade, amor e compromisso com a obra de Deus.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="descricao">
+    “A fé não é apenas acreditar, mas viver os ensinamentos de Cristo todos os dias.”
+  </p>
+
+</div>
+
+<footer>
+  <p>© 2026 Canto de Maria</p>
+</footer>
+
+<script>
+  function toggleItem(botao) {
+    const itemAtual = botao.parentElement;
+    const conteudoAtual = botao.nextElementSibling;
+    const accordionAtual = itemAtual.parentElement;
+    const todosOsItems = accordionAtual.querySelectorAll('.item');
+
+    todosOsItems.forEach(item => {
+      const conteudo = item.querySelector('.conteudo');
+
+      if (item !== itemAtual) {
+        conteudo.style.maxHeight = null;
+      }
+    });
+
+    if (conteudoAtual.style.maxHeight) {
+      conteudoAtual.style.maxHeight = null;
+    } else {
+      conteudoAtual.style.maxHeight = conteudoAtual.scrollHeight + "px";
+    }
+  }
+</script>
+
+</body>
+</html>
